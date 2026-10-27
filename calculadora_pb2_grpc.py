@@ -39,6 +39,21 @@ class CalculadoraStub:
                 request_serializer=calculadora__pb2.OperacaoRequest.SerializeToString,
                 response_deserializer=calculadora__pb2.OperacaoResponse.FromString,
                 _registered_method=True)
+        self.Subtrair = channel.unary_unary(
+                '/calculadora.Calculadora/Subtrair',
+                request_serializer=calculadora__pb2.OperacaoRequest.SerializeToString,
+                response_deserializer=calculadora__pb2.OperacaoResponse.FromString,
+                _registered_method=True)
+        self.Multiplicar = channel.unary_unary(
+                '/calculadora.Calculadora/Multiplicar',
+                request_serializer=calculadora__pb2.OperacaoRequest.SerializeToString,
+                response_deserializer=calculadora__pb2.OperacaoResponse.FromString,
+                _registered_method=True)
+        self.Dividir = channel.unary_unary(
+                '/calculadora.Calculadora/Dividir',
+                request_serializer=calculadora__pb2.OperacaoRequest.SerializeToString,
+                response_deserializer=calculadora__pb2.OperacaoResponse.FromString,
+                _registered_method=True)
 
 
 class CalculadoraServicer:
@@ -50,11 +65,44 @@ class CalculadoraServicer:
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def Subtrair(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Multiplicar(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Dividir(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_CalculadoraServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Somar': grpc.unary_unary_rpc_method_handler(
                     servicer.Somar,
+                    request_deserializer=calculadora__pb2.OperacaoRequest.FromString,
+                    response_serializer=calculadora__pb2.OperacaoResponse.SerializeToString,
+            ),
+            'Subtrair': grpc.unary_unary_rpc_method_handler(
+                    servicer.Subtrair,
+                    request_deserializer=calculadora__pb2.OperacaoRequest.FromString,
+                    response_serializer=calculadora__pb2.OperacaoResponse.SerializeToString,
+            ),
+            'Multiplicar': grpc.unary_unary_rpc_method_handler(
+                    servicer.Multiplicar,
+                    request_deserializer=calculadora__pb2.OperacaoRequest.FromString,
+                    response_serializer=calculadora__pb2.OperacaoResponse.SerializeToString,
+            ),
+            'Dividir': grpc.unary_unary_rpc_method_handler(
+                    servicer.Dividir,
                     request_deserializer=calculadora__pb2.OperacaoRequest.FromString,
                     response_serializer=calculadora__pb2.OperacaoResponse.SerializeToString,
             ),
@@ -84,6 +132,87 @@ class Calculadora:
             request,
             target,
             '/calculadora.Calculadora/Somar',
+            calculadora__pb2.OperacaoRequest.SerializeToString,
+            calculadora__pb2.OperacaoResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Subtrair(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/calculadora.Calculadora/Subtrair',
+            calculadora__pb2.OperacaoRequest.SerializeToString,
+            calculadora__pb2.OperacaoResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Multiplicar(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/calculadora.Calculadora/Multiplicar',
+            calculadora__pb2.OperacaoRequest.SerializeToString,
+            calculadora__pb2.OperacaoResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Dividir(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/calculadora.Calculadora/Dividir',
             calculadora__pb2.OperacaoRequest.SerializeToString,
             calculadora__pb2.OperacaoResponse.FromString,
             options,

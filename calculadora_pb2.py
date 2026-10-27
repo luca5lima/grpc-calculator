@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11\x63\x61lculadora.proto\x12\x0b\x63\x61lculadora\"3\n\x0fOperacaoRequest\x12\x0f\n\x07numero1\x18\x01 \x01(\x01\x12\x0f\n\x07numero2\x18\x02 \x01(\x01\"%\n\x10OperacaoResponse\x12\x11\n\tresultado\x18\x01 \x01(\x01\x32S\n\x0b\x43\x61lculadora\x12\x44\n\x05Somar\x12\x1c.calculadora.OperacaoRequest\x1a\x1d.calculadora.OperacaoResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11\x63\x61lculadora.proto\x12\x0b\x63\x61lculadora\"D\n\x0fOperacaoRequest\x12\x0f\n\x07numero1\x18\x01 \x01(\x01\x12\x0f\n\x07numero2\x18\x02 \x01(\x01\x12\x0f\n\x07numero3\x18\x03 \x01(\x01\"%\n\x10OperacaoResponse\x12\x11\n\tresultado\x18\x01 \x01(\x01\x32\xb0\x02\n\x0b\x43\x61lculadora\x12\x44\n\x05Somar\x12\x1c.calculadora.OperacaoRequest\x1a\x1d.calculadora.OperacaoResponse\x12G\n\x08Subtrair\x12\x1c.calculadora.OperacaoRequest\x1a\x1d.calculadora.OperacaoResponse\x12J\n\x0bMultiplicar\x12\x1c.calculadora.OperacaoRequest\x1a\x1d.calculadora.OperacaoResponse\x12\x46\n\x07\x44ividir\x12\x1c.calculadora.OperacaoRequest\x1a\x1d.calculadora.OperacaoResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,9 +32,9 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'calculadora_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_OPERACAOREQUEST']._serialized_start=34
-  _globals['_OPERACAOREQUEST']._serialized_end=85
-  _globals['_OPERACAORESPONSE']._serialized_start=87
-  _globals['_OPERACAORESPONSE']._serialized_end=124
-  _globals['_CALCULADORA']._serialized_start=126
-  _globals['_CALCULADORA']._serialized_end=209
+  _globals['_OPERACAOREQUEST']._serialized_end=102
+  _globals['_OPERACAORESPONSE']._serialized_start=104
+  _globals['_OPERACAORESPONSE']._serialized_end=141
+  _globals['_CALCULADORA']._serialized_start=144
+  _globals['_CALCULADORA']._serialized_end=448
 # @@protoc_insertion_point(module_scope)
