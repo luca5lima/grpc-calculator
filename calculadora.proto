@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package calculadora;
+
+service Calculadora {
+rpc Somar (OperacaoRequest) returns (OperacaoResponse);
+}
+
+message OperacaoRequest {
+double numero1 = 1;
+double numero2 = 2;
+}
+
+message OperacaoResponse {
+double resultado = 1;
+}
