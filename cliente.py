@@ -1,18 +1,35 @@
-# Cliente gRPC
+# Cliente gRPC - Calculadora
 
 import grpc
 
 import calculadora_pb2
 import calculadora_pb2_grpc
 
-with grpc.insecure_channel("localhost:50051") as canal:
-    cliente = calculadora_pb2_grpc.CalculadoraStub(canal)
+ENDERECO = "localhost:50051"
+TIMEOUT_SEGUNDOS = 5
 
-    requisicao = calculadora_pb2.OperacaoRequest(
-        numero1=30,
-        numero2=20
-    )
+def executar(nome, metodo, requisicao):
+    """Chama um método RPC e imprime o resultado ou o erro devolvido pelo servidor."""
+    try:
+        resposta = metodo(requisicao, timeout=TIMEOUT_SEGUNDOS)
+        print(f"{nome}: {resposta.resultado}")
+    except grpc.RpcError as erro:
+        print(f"{nome}: erro ({erro.code().name}) - {erro.details()}")
 
-    resposta_soma = cliente.Somar(requisicao)
+def main():
+    with grpc.insecure_channel(ENDERECO) as canal:
+        cliente = calculadora_pb2_grpc.CalculadoraStub(canal)
 
-    print("Soma:", resposta_soma.resultado)
+        requisicao = calculadora_pb2.OperacaoRequest(
+            numero1=10,
+            numero2=20,
+            numero3=0,
+        )
+
+        executar("Soma", cliente.Somar, requisicao)
+        executar("Subtração", cliente.Subtrair, requisicao)
+        executar("Multiplicação", cliente.Multiplicar, requisicao)
+        executar("Divisão", cliente.Dividir, requisicao)
+
+if __name__ == "__main__":
+    main()
