@@ -22,7 +22,7 @@ Projeto desenvolvido como prática da disciplina de **Sistemas Distribuídos** (
 - [Solução de problemas](#-solução-de-problemas)
 - [Conceitos praticados](#-conceitos-praticados)
 - [Próximos passos](#-próximos-passos)
-- [Licença](#-licença)
+- [Autor](#-autor)
 
 ---
 
@@ -106,7 +106,7 @@ pip --version
 
 ```bash
 # 1. Clone o repositório e entre na pasta
-git clone https://github.com/SEU-USUARIO/grpc-calculator.git
+git clone https://github.com/luca5lima/grpc-calculator.git
 cd grpc-calculator
 
 # 2. Crie o ambiente virtual
@@ -131,7 +131,7 @@ python3 cliente.py
 
 ```powershell
 # 1. Clone o repositório e entre na pasta
-git clone https://github.com/SEU-USUARIO/grpc-calculator.git
+git clone https://github.com/luca5lima/grpc-calculator.git
 cd grpc-calculator
 
 # 2. Crie o ambiente virtual
@@ -162,7 +162,7 @@ python cliente.py
 
 ```cmd
 :: 1. Clone o repositório e entre na pasta
-git clone https://github.com/SEU-USUARIO/grpc-calculator.git
+git clone https://github.com/luca5lima/grpc-calculator.git
 cd grpc-calculator
 
 :: 2. Crie o ambiente virtual
@@ -191,16 +191,23 @@ python cliente.py
 
 ```
 Servidor gRPC iniciado na porta 50051
+Pressione Ctrl+C para encerrar.
 ```
 
-**Terminal do cliente** (com `numero1=10`, `numero2=20`, `numero3=5`):
+**Terminal do cliente:** o cliente é interativo. Ele exibe um menu, pede os três números e mostra o resultado da operação escolhida. O menu se repete até você digitar `0`.
+
+Exemplo de divisão por zero (`10`, `0` e `5`), tratada pelo servidor:
 
 ```
-Soma: 35.0
-Subtração: -15.0
-Multiplicação: 1000.0
-Divisão: 0.1
+Escolha a operação: 4
+Informe o primeiro número: 10
+Informe o segundo número: 0
+Informe o terceiro número: 5
+
+Divisão: erro (INVALID_ARGUMENT) - Divisão por zero não é permitida
 ```
+
+> Se você digitar algo que não é número (por exemplo, `abc`), o cliente avisa *"Entrada inválida. Use números e ponto como separador decimal."* e volta ao menu. Use ponto, e não vírgula, nos decimais (`2.5`).
 
 ## 📐 Regras das operações
 
@@ -235,20 +242,17 @@ Com os números `a`, `b` e `c`, as operações são aplicadas da esquerda para a
 - Comunicação unária (*unary*) do gRPC
 - Tratamento de erros com códigos de status gRPC
 - Servidor concorrente com `ThreadPoolExecutor`
+- Cliente interativo com menu, validação de entrada e *timeout* nas chamadas
 
 ## 🔭 Próximos passos
 
-- [ ] Menu interativo no cliente (entrada de números via terminal)
+- [x] Menu interativo no cliente (entrada de números via terminal)
 - [ ] Testes automatizados com `pytest`
 - [ ] Comunicação segura com TLS
 - [ ] Containerização com Docker
 - [ ] Variação com *streaming* (ex.: histórico de operações)
 
-## 📄 Licença
+## 👨‍💻 Autor
 
-Distribuído sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
-## 👤 Autor
-
-**Seu Nome**
-GitHub: [@SEU-USUARIO](https://github.com/SEU-USUARIO) · LinkedIn: [seu-perfil](https://linkedin.com/in/seu-perfil)
+**Lucas Lima Cavalcante**
+GitHub: [@luca5lima](https://github.com/luca5lima) · LinkedIn: [Lucas Lima](https://linkedin.com/in/lucas-lima-c)
